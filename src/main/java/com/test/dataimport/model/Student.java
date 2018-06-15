@@ -1,5 +1,6 @@
 package com.test.dataimport.model;
 
+
 import lombok.Data;
 
 @Data

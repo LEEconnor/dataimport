@@ -21,6 +21,6 @@ public class StudentManagerImpl implements StudentManager{
 
     @Override
     public void insertStudent(Student student) {
-
+        studentDao.insertStudent(student);
     }
 }
