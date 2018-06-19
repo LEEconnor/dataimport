@@ -25,6 +25,4 @@ public class RandomUtils {
         }
         return newStr.toString();
     }
-
-
 }
