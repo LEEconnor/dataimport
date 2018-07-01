@@ -1,0 +1,28 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.dataimport.dao.StudentDao">
+    <sql id="BASE_TABLE">
+        student
+    </sql>
+
+    <sql id="BASE_COLUMN">
+        id,name,sex,age,phone
+    </sql>
+
+    <insert id="insertStudent" parameterType="com.test.dataimport.model.Student">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,name,sex,age,phone
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{id, jdbcType=BIGINT},#{name, jdbcType=VARCHAR},#{sex, jdbcType=VARCHAR},#{age, jdbcType=INTEGER},#{phone, jdbcType=VARCHAR}
+        </trim>
+    </insert>
+
+    <select id="selectStudentByCondition" resultType="com.test.dataimport.model.Student">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+</mapper>
